@@ -36,7 +36,7 @@
 //    pricecents : 799
 // }
 // ];
-
+import {cart} from '../data/cart.js';
 let productshtml = '';
 products.forEach((product) => {
     productshtml +=
