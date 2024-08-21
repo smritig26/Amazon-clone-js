@@ -656,5 +656,35 @@ const products = [
       "apparel",
       "mens"
     ]
+  },{
+    id: "backpackkkkkkkk",
+    image: "images/products/backpack.jpg",
+    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
+    rating: {
+      stars: 4.5,
+      count: 2345
+    },
+    priceCents: 2400,
+    keywords: [
+      "travel",
+      "school",
+      "work",
+      "mens"
+    ]
+  },{
+    id: "umbreallaaaaaaaa",
+    image: "images/products/umbrella.jpg",
+    name: "Men's Full-Zip Hooded Fleece Sweatshirt",
+    rating: {
+      stars: 4.5,
+      count: 2345
+    },
+    priceCents: 2400,
+    keywords: [
+      "travel",
+      "school",
+      "work",
+      "mens"
+    ]
   }
 ];
