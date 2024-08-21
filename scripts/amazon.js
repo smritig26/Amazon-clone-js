@@ -116,7 +116,11 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
         quantity : 1
       });
     }
-    
+    let cartquantity;
+    cart.forEach((item) => {
+      cartquantity += item.quantity;
+    });
+    console.log(cartquantity);
     console.log(cart);
   });
 });
