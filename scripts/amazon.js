@@ -36,7 +36,7 @@
 //    pricecents : 799
 // }
 // ];
-import {cart,addToCart} from '../data/cart.js';
+import {cart,addToCart,calculateCartQunatity} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 let productshtml = '';
@@ -101,13 +101,11 @@ document.querySelector('.js-products-grid').innerHTML = productshtml;
 
 
 function updateCartQuantity(){
-  let cartquantity = 0;
-      cart.forEach((item) => {
-        cartquantity += item.quantity;
-      });
-
-      document.querySelector('.js-cart-quantity').innerHTML = cartquantity;
+  const cartquantity = calculateCartQunatity();
+  document.querySelector('.js-cart-quantity').innerHTML = cartquantity;
 }
+updateCartQuantity();
+// calculateCartQunatity();
 document.querySelectorAll('.js-add-to-cart').forEach((button) => {
   let addedTimeoutId;
   button.addEventListener('click', () => {
