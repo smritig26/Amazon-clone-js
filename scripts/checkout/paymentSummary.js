@@ -19,13 +19,18 @@ export function renderPaymentSummary(){
     const taxCents = totalBeforeTacCents * 0.1;
     const totalCents = totalBeforeTacCents + taxCents;
 
+    let quant = 0;
+    cart.forEach((item) => {
+        quant += item.quantity;
+    })
+
     const paymentSummaryHTML = `
             <div class="payment-summary-title">
                     Order Summary
                 </div>
 
                 <div class="payment-summary-row">
-                    <div>Items (3):</div>
+                    <div>Items (${quant}):</div>
                     <div class="payment-summary-money">$${formatCurrency(productPriceCents)}</div>
                 </div>
 
