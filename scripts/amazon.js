@@ -118,7 +118,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
     
 
       updateCartQuantity();
-
+      
       const msg = document.querySelector(`.new-added-${productId}`);
 
       
