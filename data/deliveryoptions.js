@@ -23,6 +23,7 @@ export function getDeliveryOption(deliveryOptionId){
             deliveryOption = option;
         }
     });
+    if(!deliveryOption) return ;
     return deliveryOption || deliveryOptions[0];
 }
 

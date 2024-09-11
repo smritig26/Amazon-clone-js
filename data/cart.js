@@ -88,7 +88,14 @@ export function addToCart(productId,val){
       matchingitem = item;
     }
   });
+  if(!matchingitem){
+    return ;
+  }
+
+  
+
 
   matchingitem.deliveryOptionId = deliveryOptionId;
   saveToStorage();
+
  }

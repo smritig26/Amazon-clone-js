@@ -1,6 +1,6 @@
 import { renderOrderSummary } from "../../scripts/checkout/orderSummary.js";
 import { addToCart , cart , loadFromStorage } from "../../data/cart.js";
-
+import { products } from "../../data/products.js";
 
 describe('test suite : renderOrderSummary' , () =>{
   const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
@@ -41,7 +41,13 @@ describe('test suite : renderOrderSummary' , () =>{
           document.querySelector(`.js-product-quantity-${product2}`).innerText
         ).toContain('Quantity: 1');
 
-        document.querySelector('.js-test-container').innerHTML = '';
+        expect(
+          document.querySelector(`.js-product-name-${productId1}`).innerHTML
+        ).toContain('Black and Gray Athletic Cotton Socks - 6 Pairs');
+        
+        expect(
+          document.querySelector(`.js-product-price-${productId1}`).innerHTML
+        ).toContain('$10.90');
     });
 
     it('removes a product', () => {
@@ -60,7 +66,46 @@ describe('test suite : renderOrderSummary' , () =>{
           expect(cart.length).toEqual(1);
           expect(cart[0].productId).toEqual(product2);
 
-          document.querySelector('.js-test-container').innerHTML = '';
+          expect(
+            document.querySelector(`.js-product-name-${product2}`).innerHTML
+          ).toContain('Intermediate Size Basketball');
+          
 
     });
+
+    afterEach(() => {
+      document.querySelector('.js-test-container').innerHTML = '';
+    });
+
+    it('update the delivery option : ' , () => {
+      document.querySelector(`.js-del-option-${productId1}-${3}`).click();
+
+      expect(
+        document.querySelector(`.js-delivery-option-input-${productId1}-${3}`).checked).toEqual(true);
+
+        expect(cart.length).toEqual(2);
+
+
+        expect(cart[0].productId).toEqual(productId1);
+        expect(cart[0].deliveryOptionId).toEqual('3');
+
+        expect(
+          document.querySelector('.js-payment-shipping').innerText
+        ).toEqual('$14.98');
+
+        expect(
+          document.querySelector('.js-money-total').innerText
+        ).toEqual('$63.50');
+
+        
+    })
+
+    
+
 });
+
+
+
+
+
+
