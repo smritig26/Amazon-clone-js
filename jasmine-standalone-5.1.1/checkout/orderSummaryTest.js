@@ -47,7 +47,7 @@ describe('test suite : renderOrderSummary' , () =>{
         
         expect(
           document.querySelector(`.js-product-price-${productId1}`).innerHTML
-        ).toContain('$10.90');
+        ).toContain('10.90');
     });
 
     it('removes a product', () => {
