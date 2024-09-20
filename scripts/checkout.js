@@ -9,14 +9,19 @@ import '../data/car.js';
 // import '../data/backend-practice.js';
 import { loadCart } from '../data/cart.js';
 async function loadPage(){
-    // console.log('load page');
-    await loadProductsFetch();
-    await new Promise((resolve) => {
+    try{
+        // throw 'error1';
+        await loadProductsFetch();
+    const value = await new Promise((resolve,reject) => {
+        // throw 'error2';
         loadCart(() =>{
-            resolve();
+            // reject('error3');
+            resolve('value3');
         });
     });
-
+    } catch(error){
+        console.log('error is there');
+    }
     renderCheckoutHeader();
     renderOrderSummary();
     renderPaymentSummary();
