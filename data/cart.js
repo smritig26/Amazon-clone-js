@@ -121,3 +121,11 @@ export function addToCart(productId,val){
   xhr.open('GET' , 'https://supersimplebackend.dev/cart');
   xhr.send();
 }
+
+
+export async function loadCartFetch() {
+  const respnse = await fetch('https://supersimplebackend.dev/cart');
+  const text = await respnse.text();
+  console.log(text);
+  return text;
+}

@@ -140,7 +140,7 @@ export function loadProducts(fun){
         if(productDetails.type === 'clothing'){
           return new Clothing(productDetails);
         }
-      
+        
         else if(productDetails.type === 'appliance'){
           return new Appliance(productDetails);
         }
